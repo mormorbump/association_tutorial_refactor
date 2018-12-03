@@ -1,0 +1,11 @@
+<hr>
+<% unless @path.is('users#show') %>
+    <p><span>email: </span><%=link_to tweet.user.email, user_path(tweet.user.id) %></p>
+<% end %>
+<p><span>ツイート内容: </span><%=link_to tweet.body, tweet_path(tweet.id) %></p>
+<% if user_signed_in? %>
+    <%= render "favorites/new", tweet: tweet %>
+    <%= render "relationships/new", user: tweet.user %>
+    <% else %>
+    <p><span>お気に入り数: </span><%= tweet.favorites.count %></p>
+<% end %>

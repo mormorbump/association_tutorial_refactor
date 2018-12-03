@@ -1,0 +1,7 @@
+<%= form_for([tweet, comment]) do |f| %>
+  <p>
+    <%= f.label :body,"コメント" %>
+    <%= f.text_field :body %>
+  </p>
+  <%= f.submit %>
+<% end %>
